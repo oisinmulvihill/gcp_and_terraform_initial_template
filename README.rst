@@ -2,7 +2,13 @@
 Terraform and Google Template Set up
 ====================================
 
-A template repository to get an organisation off the ground using Terraform with Google Cloud. Please click "Use this template" button to create your own repository based off this one.
+A template repository to get an organisation off the ground using Terraform with Google Cloud.
+
+.. image:: assets/howtotemplate.png
+    :align: center
+    :alt: Please "Use this template".
+
+Please click "Use this template" button to create your own repository based off this one.
 
 Required:
 
