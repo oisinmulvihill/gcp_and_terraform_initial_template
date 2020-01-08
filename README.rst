@@ -2,9 +2,10 @@
 Terraform and Google Template Set up
 ====================================
 
-A template repository to get an organisation off the ground using Terraform with Google Cloud.
+A template repository to get an organisation off the ground using Terraform with Google Cloud. Please click "Use this template" button to create your own repository based off this one.
 
 Required:
+
 - Google command line tools from SDK https://cloud.google.com/sdk/
 - A Google Cloud account with an Organisation configured https://console.cloud.google.com/cloud-resource-manager.
 - Make
