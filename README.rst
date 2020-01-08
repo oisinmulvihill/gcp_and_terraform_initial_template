@@ -1,7 +1,3 @@
-====================================
-Terraform and Google Template Set up
-====================================
-
 .. image:: assets/howtotemplate.png
     :align: center
     :alt: Please "Use this template".
@@ -13,6 +9,12 @@ Required:
 - Google command line tools from SDK https://cloud.google.com/sdk/
 - A Google Cloud account with an Organisation configured https://console.cloud.google.com/cloud-resource-manager.
 - Make
+
+
+====================================
+Terraform and Google Template Set up
+====================================
+
 
 .. contents::
 
