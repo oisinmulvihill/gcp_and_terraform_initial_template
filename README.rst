@@ -37,7 +37,12 @@ You will need to login in order to be able to run terraform commands. The <your 
 
 	# Each time you reboot or use another company's set up on gcloud.
 	gcloud config configurations activate <your org name>
-	gcloud auth application-default login
+
+	# (Once-off usually) set the account for your username on the organisational domain
+	gcloud config set account <ACCOUNT @ organisation dot something>
+
+	# login as this account
+	gcloud auth login
 
 
 Terraform Once-off Set up
@@ -51,42 +56,12 @@ Please rename the file template_env_mk to env.mk and set the values for the envi
 
 ``GCLOUD_BILLING_ID``: From https://console.cloud.google.com/billing you will see the "Billing account ID" column for the billing account you wish to use.
 
-``TF_ADMIN``: The name of the Google Project which will be used only by Terraform. This does not have to exist and will be created if its not present. For example TF_ADMIN=<my org name>-terraform-admin
+This assumes that the person performing this is the initial system administrator setting this up for the first time. They will create the users and groups using terraform later on.
 
-``TF_CREDS``: The name and path of the Terraform JSON credentials. This file will be created for you. For example TF_CREDS=${HOME}/.config/gcloud/<my org name>-terraform-credentials.json
+Now set up the shared state. This allows others to run terraform using the same state and provides some protection against overwriting each other.
 
-Start by setting up the admin project and admin service account creation.
-
-.. code-block:: bash
-
-	make init
-
-Start by setting up the admin project and admin service account creation.
-
-.. code-block:: bash
-
-	make admin-project service-account
-
-Next enable the google APIs I think I'll need. This can be added to and re-run and was based on previous google cloud projects.
-
-.. code-block:: bash
-
-	make enable-apis
-
-Now I need to enable the permissions from
-
-.. code-block:: bash
-
-	make org-and-folder-permissions
-
-Now the shared state needs to be set up. This allows others to run terraform using the same state. **``NOTE``**: Only once person should run at a time as it is not safe to run in parallel
+**``NOTE``**: Only once person should run at a time as it is not safe to run in parallel
 
 .. code-block:: bash
 
 	make init-terraform-state-store
-
-Finally, we now need to get the service account key to be able to terraform. I put this key into 1Password under "myorg Systems GCloud R&D account". Edit the following file and put the JSON contents into it.
-
-.. code-block:: bash
-
-	vi ~/.config/gcloud/<your org name>_tfadmin_credentials.json
