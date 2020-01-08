@@ -22,7 +22,7 @@ Terraform and Google Template Set up
 Terraform Usage
 ---------------
 
-To perform actions change into terraform you can then use ``make`` to do ``plan, apply, init, ...`` and other actions.
+Change into the terraform directory to run the commands. Now you can use ``make`` to do ``plan, apply, init, ...`` and other actions.
 
 
 Authentication
@@ -32,27 +32,34 @@ You will need to login in order to be able to run terraform commands. The <your 
 
 .. code-block:: bash
 
-	gcloud config configurations activate <your org name>
-	gcloud auth application-default login
-
-.. code-block:: bash
-
+	# Once-off set up:
 	gcloud config configurations create <your org name>
+
+	# Each time you reboot or use another company's set up on gcloud.
 	gcloud config configurations activate <your org name>
-
-	gcloud config set account $USER@<your org name dot com>
-	gcloud config set compute/zone europe-west2
-
-	# login and authorise $USER@<your org name dot com> in the browser:
 	gcloud auth application-default login
 
 
 Terraform Once-off Set up
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please rename the file template_env_mk to env.mk and set the values for the environment variables.
+Please rename the file template_env_mk to env.mk and set the values for the environment variables:
 
-The documentation from Using https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform was the basis for the commands I put into the Makefile. The follow are based on running commands from this Makefile.
+``REGION``: This can be any valid region from https://cloud.google.com/compute/docs/regions-zones/
+
+``GCLOUD_ORG_ID``: From https://console.cloud.google.com/cloud-resource-manager get the ID value shown.
+
+``GCLOUD_BILLING_ID``: From https://console.cloud.google.com/billing you will see the "Billing account ID" column for the billing account you wish to use.
+
+``TF_ADMIN``: The name of the Google Project which will be used only by Terraform. This does not have to exist and will be created if its not present. For example TF_ADMIN=<my org name>-terraform-admin
+
+``TF_CREDS``: The name and path of the Terraform JSON credentials. This file will be created for you. For example TF_CREDS=${HOME}/.config/gcloud/<my org name>-terraform-credentials.json
+
+Start by setting up the admin project and admin service account creation.
+
+.. code-block:: bash
+
+	make init
 
 Start by setting up the admin project and admin service account creation.
 
