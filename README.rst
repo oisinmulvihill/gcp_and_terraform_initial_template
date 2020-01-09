@@ -27,7 +27,7 @@ To perform actions change into ``terraform/`` directory. From this directory you
 Quick-start
 ~~~~~~~~~~~
 
-The main commands to run are ``make plan`` and if there are no errors run ``make apply``. It is good practice to tell others you are about to apply before doing it. Make sure you have the latest repository changes.
+The main commands to run are ``make plan`` and if there are no errors run ``make apply``. It is good practice to tell others you are about to apply before doing it. Make sure you have the latest repository changes. **``NOTE``**: Only one person should run at a time as it is not safe to run in parallel
 
 New Dev Environment
 ~~~~~~~~~~~~~~~~~~~
@@ -110,7 +110,7 @@ Now I need to enable the bindings for the terraform service admin so it can do i
 
 	make bindings
 
-Now the shared state needs to be set up. This allows others to run terraform using the same state. **``NOTE``**: Only one person should run at a time as it is not safe to run in parallel
+Now the shared state needs to be set up. This allows others to run terraform using the same state.
 
 .. code-block:: bash
 
