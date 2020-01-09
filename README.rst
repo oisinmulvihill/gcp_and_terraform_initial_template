@@ -59,12 +59,12 @@ To use the Google SDK ``gcloud`` command line tool you need to login as your GSu
   gcloud config configurations create <your org name>
 
   # Once-off set up after creating the configuration:
-	gcloud config configurations activate <your org name>
+  gcloud config configurations activate <your org name>
   gcloud config set account <user @ some domain>
 
   # Each time you reboot or use another organisation
   gcloud config configurations activate <your org name>
-	gcloud auth application-default login
+  gcloud auth application-default login
 
 The ``gcloud auth application-default login`` does not effect terraform in any way. This only controls what you can do with ``gcloud``. To learn more about application default have a look at https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login.
 
