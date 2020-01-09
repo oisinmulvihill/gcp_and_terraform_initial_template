@@ -70,9 +70,12 @@ The ``gcloud auth application-default login`` does not effect terraform in any w
 
 
 Terraform Once-off Set up
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 This once-off set up is performed by the person setting up the account or the organisational administrator. This is done once in the life of the Organisation.
+
+Configuration
+~~~~~~~~~~~~~
 
 Please rename the file template_env_mk to env.mk and set the values for the environment variables:
 
@@ -87,6 +90,9 @@ Please rename the file template_env_mk to env.mk and set the values for the envi
 ``ORG_TF_CREDS``: This is the credential key for the terraform admin service account. For example ORG_TF_CREDS=${HOME}/.config/gcloud/<my org name>_tfadmin_credentials.json
 
 You will now have to manually edit ``backend.tf`` and change the "bucket" value replacing "<your org name>".
+
+Terraform Admin Set up
+~~~~~~~~~~~~~~~~~~~~~~
 
 Now you are ready to perform the terraform admin project and service account set up.
 
@@ -114,16 +120,16 @@ Now the shared state needs to be set up. This allows others to run terraform usi
 
 When the service account is created a key will be download to the ``ORG_TF_CREDS`` location. I my case, I put this key into 1Password which I can share later on.
 
-We are almost done now.
-Test run with empty Terraform configuration. Now
+Test run
+~~~~~~~~
 
-Now the service account is set up and ready it time to initialise Terraform.
+We are almost done now we just need to test with empty Terraform configuration. The service account is set up so now we need to initialise Terraform.
 
 .. code-block:: bash
 
   make init
 
-This should download all the plugins we need. Finally we should be able to plan and apply the empty configuration successfully.
+This should download all the plugins we need. Finally we should be able to ``plan`` and ``apply`` the empty configuration successfully.
 
 .. code-block:: bash
 
