@@ -31,8 +31,8 @@ The main commands to run are ``make plan`` and if there are no errors run ``make
 
 It is good practice to tell others you are about to apply before doing it. Make sure you have the latest repository changes.
 
-Set up
-~~~~~~
+New Dev Environment
+~~~~~~~~~~~~~~~~~~~
 
 The first time you set up your environment you must set up the credentials key. See `Authentication`_ for more details on this. The next step is to run initialise on your machine:
 
