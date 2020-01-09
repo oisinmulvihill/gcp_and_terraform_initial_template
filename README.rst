@@ -82,7 +82,7 @@ Please rename the file template_env_mk to env.mk and set the values for the envi
 
 ``GCLOUD_BILLING_ID``: From https://console.cloud.google.com/billing you will see the "Billing account ID" column for the billing account you wish to use.
 
-``ORG_TF_ADMIN``: The name space which will be used only by Terraform. For example TF_ADMIN=<my org name>-terraform-admin
+``ORG_TF_ADMIN``: The name space which will be used only by Terraform. For example ORG_TF_ADMIN=<my org name>-terraform-admin
 
 ``ORG_TF_CREDS``: This is the credential key for the terraform admin service account. For example ORG_TF_CREDS=${HOME}/.config/gcloud/<my org name>_tfadmin_credentials.json
 
@@ -135,7 +135,7 @@ This should download all the plugins we need. Finally we should be able to plan 
 
 For example:
 
-  .. code-block:: bash
+.. code-block:: bash
 
   $ make plan
   terraform plan -out infrastructure.plan
