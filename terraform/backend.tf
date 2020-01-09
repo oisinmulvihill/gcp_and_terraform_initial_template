@@ -1,12 +1,12 @@
 provider "google" {
   version = "~> 2.5"
-  region  = "${var.region}"
-  zone    = "${var.zone}"
+  region  = var.region
+  zone    = var.zone
 }
 
 terraform {
   backend "gcs" {
-    bucket = "terraform-admin-shared-state"
+    bucket = "<your org name>-terraform-admin"
     prefix = "terraform/state"
   }
 }

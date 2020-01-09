@@ -4,3 +4,4 @@ export REGION="<The Region to use e.g. europe-west2>"
 export GCLOUD_ORG_ID="<Your Organisation ID goes here>"
 export GCLOUD_BILLING_ID="<Your Billing Account ID Goes Here>"
 export ORG_TF_ADMIN="<The terraform admin project name e.g. terraform-admin>"
+export ORG_TF_CREDS=${HOME}/.config/gcloud/<your org name>_tfadmin_credentials.json
